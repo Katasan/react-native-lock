@@ -35,9 +35,9 @@
 #import <Lock-Twitter/A0TwitterAuthenticator.h>
 #endif
 
-#if __has_include(<Lock-GooglePlus/A0GooglePlusAuthenticator.h>)
+#if __has_include(<Lock-Google/A0GoogleAuthenticator.h>)
 #define GOOGLE_PLUS_ENABLED 1
-#import <Lock-GooglePlus/A0GooglePlusAuthenticator.h>
+#import <Lock-Google/A0GoogleAuthenticator.h>
 #endif
 
 @implementation A0LockReactModule
@@ -86,7 +86,7 @@ RCT_EXPORT_METHOD(nativeIntegrations:(NSDictionary *)integrations) {
         if ([@"google" isEqualToString:key]) {
             NSString *clientId = values[@"client_id"];
             NSArray *scopes = values[@"scopes"];
-            [authenticators addObject:[A0GooglePlusAuthenticator newAuthenticatorWithClientId:clientId andScopes:scopes]];
+            [authenticators addObject:[A0GoogleAuthenticator newAuthenticatorWithClientId:clientId andScopes:scopes]];
         }
 #endif
     }];
